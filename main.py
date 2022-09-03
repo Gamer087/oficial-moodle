@@ -292,7 +292,7 @@ def onmessage(update,bot:ObigramClient):
         except:pass
 
         # comandos de admin
-        if '/adduser' in msgText:
+        if '/add' in msgText:
             isadmin = jdb.is_admin(username)
             if isadmin:
                 try:
@@ -323,7 +323,7 @@ def onmessage(update,bot:ObigramClient):
             else:
                 bot.sendMessage(update.message.chat.id,'Acesso Denegado')
             return
-        if '/banuser' in msgText:
+        if '/ban' in msgText:
             isadmin = jdb.is_admin(username)
             if isadmin:
                 try:
@@ -350,7 +350,7 @@ def onmessage(update,bot:ObigramClient):
                 bot.sendMessage(update.message.chat.id,'Acceso Denegado')
                 bot.sendMessage(chat_id=group_id,text=f"@{username} intento usar la base de datos sin permiso")        
             return
-        if '/setevea' in msgText:
+        if '/evea' in msgText:
             getUser = user_info
             user = ''
             passw = ''
@@ -370,7 +370,7 @@ def onmessage(update,bot:ObigramClient):
                 statInfo = infos.createStat(username,getUser,jdb.is_admin(username))
                 bot.sendMessage(update.message.chat.id,f"Todo configurado para el host{hostmo}")
             return
-        if '/seteva' in msgText:
+        if '/eva' in msgText:
             getUser = user_info
             user = ''
             passw = ''
@@ -390,7 +390,7 @@ def onmessage(update,bot:ObigramClient):
                 statInfo = infos.createStat(username,getUser,jdb.is_admin(username))
                 bot.sendMessage(update.message.chat.id,f"Todo configurado para el host{hostmo}")
             return
-        if '/setcursos' in msgText:
+        if '/cursos' in msgText:
             getUser = user_info
             user = ''
             passw = ''
@@ -410,7 +410,7 @@ def onmessage(update,bot:ObigramClient):
                 statInfo = infos.createStat(username,getUser,jdb.is_admin(username))
                 bot.sendMessage(update.message.chat.id,f"Todo configurado para el host{hostmo}")
             return
-        if '/setedu' in msgText:
+        if '/edu' in msgText:
             getUser = user_info
             user = ''
             passw = ''
@@ -430,7 +430,7 @@ def onmessage(update,bot:ObigramClient):
                 statInfo = infos.createStat(username,getUser,jdb.is_admin(username))
                 bot.sendMessage(update.message.chat.id,f"Todo configurado para el host{hostmo}")
             return
-        if '/setuclv' in msgText:
+        if '/uclv' in msgText:
             getUser = user_info
             user = ''
             passw = ''
@@ -470,7 +470,7 @@ def onmessage(update,bot:ObigramClient):
         # end
 
         # comandos de usuario
-        if '/tutorial' in msgText:
+        if '/tuto' in msgText:
             tuto = open('tuto.txt','r')
             bot.sendMessage(update.message.chat.id,tuto.read())
             tuto.close()
@@ -563,7 +563,7 @@ def onmessage(update,bot:ObigramClient):
                     bot.sendMessage(update.message.chat.id,"Rename off")
             except: bot.sendMessage(update.message.chat.id,"No se pudo descativar el autonombrado")
             return
-        if '/type' in msgText:
+        if '/nube' in msgText:
             try:
                 cmd = str(msgText).split(' ',2)
                 repoid = cmd[1]
@@ -578,7 +578,7 @@ def onmessage(update,bot:ObigramClient):
                 else: bot.sendMessage(update.message.chat.id,"Tipo de nube no permitido")     
             except:
                 bot.sendMessage(update.message.chat.id,'Error en el comando /type (moodle or cloud)')
-        if '/uptype' in msgText:
+        if '/up' in msgText:
             try:
                 cmd = str(msgText).split(' ',2)
                 type = cmd[1]
@@ -621,7 +621,7 @@ def onmessage(update,bot:ObigramClient):
             proxy_de = S5Crypto.decrypt(f'{proxy_sms}')
             bot.sendMessage(update.message.chat.id, f'Proxy decryptado:\n{proxy_de}')
             return
-        if '/del_proxy' in msgText:
+        if '/off_proxy' in msgText:
             try:
                 getUser = user_info
                 if getUser:
